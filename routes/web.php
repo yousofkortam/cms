@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\mediaController;
 use App\Http\Controllers\pagesController;
 use App\Http\Controllers\postsController;
@@ -17,10 +18,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    $title = "Home";
-    return view('welcome', ['title' => $title]);
-});
+Route::get('/', [HomeController::class, 'getHome']);
 
 Route::get('/features', [pagesController::class, 'features']);
 Route::get('/about', [pagesController::class, 'about']);

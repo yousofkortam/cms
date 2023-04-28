@@ -1,8 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
 use App\Models\User;
 
 class HomeController extends Controller
@@ -14,7 +12,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except('getHome');
     }
 
     /**
@@ -31,5 +29,14 @@ class HomeController extends Controller
             'media' => $user->media,
         ];
         return view('home')->with($data);
+    }
+
+    public function getHome()
+    {
+        $title = "Home";
+        if (Auth()->user()) {
+            return redirect('/home');
+        }
+        return view('welcome', ['title' => $title]);
     }
 }
