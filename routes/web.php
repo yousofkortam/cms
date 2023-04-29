@@ -4,6 +4,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\mediaController;
 use App\Http\Controllers\pagesController;
 use App\Http\Controllers\postsController;
+use App\Http\Controllers\userController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -19,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'getHome']);
-
+Route::get('/profile/{id}', [userController::class, 'profile']);
 Route::get('/features', [pagesController::class, 'features']);
 Route::get('/about', [pagesController::class, 'about']);
 
@@ -44,6 +45,8 @@ Route::prefix('media')->group(function () {
         Route::delete('/{id}/delete', 'destroy');
     });
 });
+
+
 
 Auth::routes();
 

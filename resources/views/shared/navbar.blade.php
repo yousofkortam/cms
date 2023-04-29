@@ -11,19 +11,19 @@
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="/home">Home</a>
+                    <a class="nav-link" aria-current="page" href="{{ url('/home') }}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="/features">Features</a>
+                    <a class="nav-link" aria-current="page" href="{{ url('/features') }}">Features</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="/posts">Blog</a>
+                    <a class="nav-link" aria-current="page" href="{{ url('/posts') }}">Blog</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="/media">Media</a>
+                    <a class="nav-link" aria-current="page" href="{{ url('/media') }}">Media</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="/about">About us</a>
+                    <a class="nav-link" aria-current="page" href="{{ url('/about') }}">About us</a>
                 </li>
             </ul>
 
@@ -49,6 +49,10 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/profile/{{Auth()->user()->id}}">
+                                {{ __('Profile') }}
+                            </a>
+
                             <a class="dropdown-item" href="/home">
                                 {{ __('Dashboard') }}
                             </a>
